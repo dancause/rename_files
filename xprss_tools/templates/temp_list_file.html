@@ -1,0 +1,117 @@
+{% extends "index.html" %}
+{% block content %}
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/name_file.js"></script>
+    <script src="/js/xhr.js"></script>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container_fluid">
+          <div class="page-header">
+            <h1 class="title">Get File Liste</h1>
+        </div>
+
+            <form class="form-group" >
+
+                <div class="row " >
+                    <div class="col-md-1 form-group"></div>
+                    <div class="col-md-4 form-group">
+                    <label  >new name</label>
+                <input class="form-control" type="text" name="newname" id="newnamefile"></div>
+                    <div class="col-md-2 "><input class="form-control btn-primary" id="newname" type="button" value="ok" onclick="new_name()"></div>
+                </div>
+
+
+
+            </form>
+<hr>
+</div>
+
+<div class="container_fluid">
+
+    	 {% if not fichiers %}
+
+    	 {% else %}
+				{% for a in fichiers %}
+	
+
+
+<div class="row" id="FILE_{{a.name}}">
+      
+            <form id="form_{{a.name }}" class="form-group" >
+                                        <div class="col-md-1 form-group"></div>
+
+ 
+                                        <div class="col-md-2 form-group">
+<div><a href="/images/{{ a.name}}" target="_blank"><img src="/images/{{a.name}}" alt="{{a.name}}" class="img-thumbnail" style="height: 175px;"></a></div>
+                                             </div>
+
+
+                                            <div class="col-md-2 form-group">
+                                                <p class="text-center"><b>{{a.name }}</b></p> 
+                                                  <input type="hidden" name="hidden_name_file" id="hidden_name_file_{{a.name }}" value="{{a.name}}">
+                                            </div>
+                                        <div class="col-md-2 form-group" style="border-right-style: solid;">
+                                            <label >new name<span>*</span></label>
+                                            <input class="form-control" type="text" name="oldnamefile" id="oldnamefile_{{a.name }}"required="required" aria-required="true">
+                                        </div>
+
+                        <div class="col-md-1 form-group"style="border-right-style: solid;">
+                                           <label for="" class=""> Pagination <span class="fb-required">*</span></label>
+                                            
+                                         
+                                                    <select name="pagination" id="pagination_{{a.name }}" class="form-control">
+                                                      <option name="pagination" value=""></option>
+                                                      <option name="pagination" value="1A">1A</option>
+                                                      <option name="pagination" value="1B">1B</option>
+                                                      <option name="pagination" value="1C">1C</option>
+                                                      <option name="pagination" value="1D">1D</option>
+                                                      <option name="pagination" value="1E">1E</option>
+                                                      <option name="pagination" value="1F">1F</option>
+                                                      <option name="pagination" value="1G">1G</option>
+                                                      <option name="pagination" alue="1H">1H</option>
+                                                      <option name="pagination" value="1I">1I</option>
+                                                      <option name="pagination" value="2A">2A</option>
+                                                      <option name="pagination" value="2B">2B</option>
+                                                      <option name="pagination" value="2D">2C</option>
+                                                      <option name="pagination" value="2E">2E</option>
+                                                      <option name="pagination" value="2F">2F</option>
+                                                      <option name="pagination" value="3A">3A</option>
+                                                      <option name="pagination" value="3B">3B</option>
+                                                      <option name="pagination" value="3D">3D</option>
+                                                      <option name="pagination" value="3E">3E</option>
+                                                    </select>
+                                            
+                        </div>
+
+                        <div class="col-md-1 form-group"style="border-right-style: solid;">
+                                           
+                                                <label>Zone</label>
+                                         
+
+                                                    <select name="zone{{a.name }}" id="zone_{{a.name }}" class="form-control">
+                                                        <option name="zone" value=""></option>
+                                                        <option name="zone" value="Z1">Z1</option>
+                                                        <option name="zone" value="Z2">Z2</option>
+                                                        <option name="zone" value="X"> X</option>
+                                                    </select>
+                                          
+                        </div>
+                        <div class="col-md-1 form-group">
+                                        <button  class="btn btn-primary  form-control"type="button" onclick="save_name(this)"data-string="{{a.name}}"> save </button>
+                                        <button class="btn btn-primary form-control"type="button" onclick="hide(this)" data-string="{{a.name}}" >hide</button>
+                        </div>
+                      
+            </form>
+
+</div>
+
+
+
+    			{% endfor %}
+    	{% endif %}
+</div>
+
+
+<script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" class="__web-inspector-hide-shortcut__"></script>
+{% endblock %}
+

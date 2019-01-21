@@ -1,0 +1,77 @@
+
+
+{% extends "index.html" %}
+{% block content %}
+  <script src="/js/list_builder.js"></script>
+
+          <div class="page-header">
+            <h1 class="title">JSON Builder</h1>
+        </div>
+
+
+<div class="liste_photo container-fluid">
+   <div class="row row_media"> 
+    {% for p in photos %}
+
+    <div class="medias_display col-md-2" id="{{p.name}}">
+    		<div><label> {{p.id}}</label></div>
+    		<div><a href="images/{{p.name}}" target="_blank"><img src="images/{{p.name}}" alt="{{p.name}}" class="img-responsive img-thumbnail" ></a></div>
+ 			 <div onclick="build_list('{{p.name}}')" >
+                <label>{{p.name}}</label>
+            </div>
+
+	</div>
+
+
+    {% if loop.index is divisibleby 6 %} </div><div class="row row_media">{% endif %}		
+
+	{% endfor %}
+	
+</div>
+</div>
+<br>
+<br>
+<div class="container-fluid">
+<div class="row row_media"> 
+			<div class=" col-md-2"">
+			  <button class="btn btn-primary" onclick="build_JSON()">Create JSON</button>
+			</div>
+						<div class="col-md-2">	
+						<div class ="row">										
+							<div class="col-md-6"><label for="Zonable" class=""> Zonable</label></div>
+				             	<div class="col-md-6"><select name="Zonable" id="Zonable" class="form-control">
+			                    	<option name="Zonable" value=""></option>
+			                        <option name="Zonable" value="false">false</option>
+			                        <option name="Zonable" value="true">true</option>
+			                    </select></div>
+						</div>
+					</div>
+						<div  class="col-md-2">												
+							<div class ="row">										
+							<div class="col-md-6"><label for="set" class=""> Set</label></div>
+				             	<div class="col-md-6"><select name="set" id="set" class="form-control">
+			                    	<option name="set" value=""></option>
+			                        <option name="set" value="set2b">set2b</option>
+			                        <option name="set" value="set4b">set4b</option>
+			                        <option name="set" value="set5a">set5a</option>
+			                        <option name="set" value="set5b">set5b</option>
+			                        <option name="set" value="set6b">set6b</option>
+			                    </select></div>
+						</div></div>
+</div>
+</div>
+
+
+<br>
+<br>
+<pre id="json_result">
+
+</pre>
+
+<br>
+<br>
+
+{% endblock %}
+
+
+

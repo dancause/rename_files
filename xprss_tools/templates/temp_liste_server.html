@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+{% block content %}
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+<div class="listes_clients">
+    <h1 class="title">Admin liste</h1>
+
+ <table class="table table-hover table-responsive liste_articles">
+    <thead>
+    	<tr>
+        <th>Numéro</th>
+        <th>URL</th>
+        <th>date</th>
+    	<th>status</th>
+    	</tr>
+    	</thead>
+
+    	 {% if not web %}
+
+    	 <tr>
+
+    	<td style="text-align: center;" COLSPAN="10"><h2>Link Broken</h2></td>
+    	</tr>
+    	 {% else %}
+				{% for a in web %}
+				<tr>
+                    <td>{{a.number }}</td>
+    				<td>{{a.link}}</td>
+    				<td>{{a.date}}</td>
+    				<td>{{a.status}}</td>
+
+    			</tr>
+    			{% endfor %}
+    	{% endif %}
+    </table>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,20 @@
+BEGIN TRANSACTION;
+CREATE TABLE `url` (
+	`number`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`link`	TEXT,
+	`date`	TEXT,
+	`status`	TEXT,
+	`Field5`	INTEGER,
+	`Field6`	INTEGER,
+	`Field7`	INTEGER
+);
+CREATE TABLE `log`(
+	`numero`	INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE,
+	`link`	TEXT,
+	`date`	TEXT,
+	`status`	TEXT,
+	`Field5`	INTEGER,
+	`Field6`	INTEGER,
+	`Field7`	INTEGER
+);
+COMMIT;
